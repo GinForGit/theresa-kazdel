@@ -1,0 +1,456 @@
+/* 特蕾西娅博客 - 晨光治愈风格 v2 */
+
+:root {
+    /* 从图片中提取的色调 */
+    --bg-primary: #fdf8f5;      /* 暖白色 */
+    --bg-secondary: #fef5f0;    /* 淡粉米 */
+    --accent-pink: #f5d0c5;     /* 樱花粉 */
+    --accent-warm: #e8b4a0;     /* 暖橙色 */
+    --accent-gold: #d4a574;     /* 晨光金 */
+    --text-primary: #5a4a42;    /* 深棕 */
+    --text-secondary: #8b7355;  /* 暖灰 */
+    --text-muted: #b8a090;      /* 浅灰 */
+    --shadow-soft: rgba(232, 180, 160, 0.15);
+    --shadow-warm: rgba(212, 165, 116, 0.2);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Hiragino Sans GB', 'Noto Sans SC', sans-serif;
+    background: var(--bg-primary);
+    color: var(--text-primary);
+    line-height: 1.8;
+    min-height: 100vh;
+}
+
+/* ===== 整体布局 ===== */
+.page-wrapper {
+    display: flex;
+    min-height: 100vh;
+}
+
+/* ===== 左侧图片区域 ===== */
+.hero-image {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 45%;
+    height: 100vh;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.image-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.image-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 20%;
+}
+
+/* 图片上的柔和渐变遮罩 */
+.image-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(
+        135deg,
+        rgba(253, 248, 245, 0.1) 0%,
+        rgba(253, 248, 245, 0) 40%,
+        rgba(253, 248, 245, 0) 60%,
+        rgba(253, 248, 245, 0.3) 100%
+    );
+    pointer-events: none;
+}
+
+/* 漂浮的引言 */
+.floating-quote {
+    position: absolute;
+    bottom: 60px;
+    left: 40px;
+    right: 40px;
+    z-index: 2;
+}
+
+.floating-quote p {
+    font-size: 1.6rem;
+    font-style: italic;
+    color: rgba(255, 255, 255, 0.95);
+    text-shadow: 0 2px 20px rgba(0, 0, 0, 0.3);
+    letter-spacing: 0.1em;
+    font-weight: 300;
+}
+
+/* ===== 右侧内容区域 ===== */
+.content {
+    margin-left: 45%;
+    width: 55%;
+    min-height: 100vh;
+    padding: 60px 80px;
+    background: var(--bg-primary);
+}
+
+/* ===== 头部 ===== */
+.site-header {
+    margin-bottom: 60px;
+    padding-bottom: 40px;
+    border-bottom: 1px solid var(--accent-pink);
+}
+
+.site-title {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-bottom: 30px;
+}
+
+.title-cn {
+    font-size: 2.8rem;
+    font-weight: 300;
+    color: var(--text-primary);
+    letter-spacing: 0.2em;
+}
+
+.title-en {
+    font-size: 0.9rem;
+    letter-spacing: 0.4em;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    font-weight: 400;
+}
+
+/* ===== 导航 ===== */
+.main-nav {
+    display: flex;
+    gap: 30px;
+}
+
+.nav-link {
+    color: var(--text-secondary);
+    text-decoration: none;
+    font-size: 0.95rem;
+    padding: 8px 0;
+    position: relative;
+    transition: color 0.3s ease;
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: linear-gradient(90deg, var(--accent-warm), var(--accent-gold));
+    transition: width 0.3s ease;
+}
+
+.nav-link:hover,
+.nav-link.active {
+    color: var(--accent-warm);
+}
+
+.nav-link:hover::after,
+.nav-link.active::after {
+    width: 100%;
+}
+
+/* ===== 介绍区域 ===== */
+.intro-section {
+    margin-bottom: 80px;
+}
+
+.greeting {
+    font-size: 1.3rem;
+    color: var(--accent-warm);
+    margin-bottom: 25px;
+    font-weight: 400;
+    letter-spacing: 0.05em;
+}
+
+.intro-text p {
+    margin-bottom: 18px;
+    color: var(--text-secondary);
+    font-size: 1.05rem;
+    line-height: 2;
+    text-align: justify;
+}
+
+/* ===== 文章区域 ===== */
+.posts-section {
+    margin-bottom: 80px;
+}
+
+.section-title {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 40px;
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    font-weight: 400;
+    letter-spacing: 0.2em;
+}
+
+.title-line {
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--accent-pink), transparent);
+}
+
+.title-text {
+    white-space: nowrap;
+}
+
+/* 文章卡片 */
+.post-item {
+    margin-bottom: 30px;
+}
+
+.post-link {
+    display: block;
+    padding: 30px;
+    background: var(--bg-secondary);
+    border-radius: 16px;
+    text-decoration: none;
+    color: inherit;
+    transition: all 0.3s ease;
+    border: 1px solid transparent;
+}
+
+.post-link:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 40px var(--shadow-soft);
+    border-color: var(--accent-pink);
+}
+
+.post-date {
+    display: block;
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    margin-bottom: 12px;
+    letter-spacing: 0.05em;
+}
+
+.post-title {
+    font-size: 1.4rem;
+    font-weight: 400;
+    color: var(--text-primary);
+    margin-bottom: 12px;
+    transition: color 0.3s ease;
+}
+
+.post-link:hover .post-title {
+    color: var(--accent-warm);
+}
+
+.post-excerpt {
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+    line-height: 1.7;
+    margin-bottom: 15px;
+}
+
+.read-more {
+    font-size: 0.9rem;
+    color: var(--accent-warm);
+    transition: color 0.3s ease;
+}
+
+.post-link:hover .read-more {
+    color: var(--accent-gold);
+}
+
+/* ===== 页脚 ===== */
+.site-footer {
+    text-align: center;
+    padding-top: 40px;
+    border-top: 1px solid var(--accent-pink);
+    color: var(--text-muted);
+    font-size: 0.9rem;
+}
+
+.site-footer p {
+    margin-bottom: 8px;
+}
+
+.copyright {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    opacity: 0.7;
+}
+
+/* ===== About 页面样式 ===== */
+.about-article {
+    margin-bottom: 60px;
+}
+
+.page-title {
+    font-size: 1.8rem;
+    font-weight: 400;
+    color: var(--text-primary);
+    margin-bottom: 30px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid var(--accent-pink);
+}
+
+.about-content p {
+    margin-bottom: 20px;
+    color: var(--text-secondary);
+    line-height: 2;
+}
+
+.about-content h3 {
+    font-size: 1.2rem;
+    font-weight: 400;
+    color: var(--accent-warm);
+    margin: 35px 0 20px;
+    letter-spacing: 0.05em;
+}
+
+.highlight-quote {
+    margin: 35px 0;
+    padding: 25px 30px;
+    background: linear-gradient(135deg, var(--bg-secondary), transparent);
+    border-left: 3px solid var(--accent-warm);
+    border-radius: 0 12px 12px 0;
+}
+
+.highlight-quote p {
+    font-size: 1.3rem;
+    font-style: italic;
+    color: var(--accent-warm);
+    margin-bottom: 10px;
+}
+
+.highlight-quote cite {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    font-style: normal;
+}
+
+.belief-list {
+    list-style: none;
+    padding: 0;
+    margin: 20px 0;
+}
+
+.belief-list li {
+    position: relative;
+    padding-left: 25px;
+    margin-bottom: 12px;
+    color: var(--text-secondary);
+}
+
+.belief-list li::before {
+    content: '🌸';
+    position: absolute;
+    left: 0;
+    font-size: 0.8rem;
+    opacity: 0.7;
+}
+
+.back-link {
+    display: inline-block;
+    margin-top: 40px;
+    color: var(--text-muted);
+    text-decoration: none;
+    font-size: 0.95rem;
+    transition: color 0.3s ease;
+}
+
+.back-link:hover {
+    color: var(--accent-warm);
+}
+
+/* ===== Post 文章页面样式 ===== */
+.post-article {
+    margin-bottom: 60px;
+}
+
+.post-header {
+    margin-bottom: 40px;
+    padding-bottom: 25px;
+    border-bottom: 1px solid var(--accent-pink);
+}
+
+.post-title-main {
+    font-size: 1.8rem;
+    font-weight: 400;
+    color: var(--text-primary);
+    margin-bottom: 12px;
+}
+
+.post-date-main {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    letter-spacing: 0.05em;
+}
+
+.post-content {
+    line-height: 2;
+}
+
+.post-content p {
+    margin-bottom: 20px;
+    color: var(--text-secondary);
+}
+
+/* ===== 响应式设计 ===== */
+@media (max-width: 1024px) {
+    .hero-image {
+        position: relative;
+        width: 100%;
+        height: 50vh;
+    }
+    
+    .content {
+        margin-left: 0;
+        width: 100%;
+        padding: 40px;
+    }
+    
+    .page-wrapper {
+        flex-direction: column;
+    }
+    
+    .floating-quote {
+        bottom: 30px;
+        left: 30px;
+        right: 30px;
+    }
+    
+    .floating-quote p {
+        font-size: 1.3rem;
+    }
+}
+
+@media (max-width: 600px) {
+    .content {
+        padding: 30px 20px;
+    }
+    
+    .title-cn {
+        font-size: 2rem;
+    }
+    
+    .main-nav {
+        gap: 20px;
+    }
+    
+    .post-link {
+        padding: 20px;
+    }
+}
