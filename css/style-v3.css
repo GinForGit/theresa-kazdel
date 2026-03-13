@@ -523,3 +523,52 @@ body {
         font-size: 1.3rem;
     }
 }
+
+/* ===== 音乐播放器 ===== */
+.music-player {
+    margin: 50px 0;
+    padding: 20px 25px;
+    background: linear-gradient(135deg, var(--bg-soft) 0%, var(--bg-pink) 100%);
+    border-radius: 16px;
+    border: 1px solid var(--hair-pink);
+    box-shadow: 0 4px 20px var(--shadow-soft);
+}
+
+.music-info {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 12px;
+}
+
+.music-icon {
+    font-size: 1.2rem;
+    animation: float 2s ease-in-out infinite;
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-3px); }
+}
+
+.music-title {
+    font-size: 0.9rem;
+    color: var(--text-soft);
+    letter-spacing: 0.05em;
+}
+
+.music-player iframe {
+    border-radius: 8px;
+    display: block;
+}
+
+/* 音乐播放器响应式 */
+@media (max-width: 600px) {
+    .music-player {
+        padding: 15px 20px;
+    }
+    
+    .music-player iframe {
+        width: 100%;
+    }
+}
