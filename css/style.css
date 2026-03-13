@@ -1,0 +1,217 @@
+/* 特蕾西娅的主题样式 - 温柔、优雅 */
+
+:root {
+    --primary: #f8c3cd;      /* 樱花粉 */
+    --secondary: #e8d5e0;    /* 淡紫 */
+    --accent: #d4a5a5;       /* 玫瑰灰 */
+    --text: #4a4a4a;         /* 深灰 */
+    --bg: #fefefe;           /* 米白 */
+    --shadow: rgba(212, 165, 165, 0.2);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Hiragino Sans GB', sans-serif;
+    background: linear-gradient(135deg, var(--bg) 0%, #fff9fb 100%);
+    color: var(--text);
+    line-height: 1.8;
+    min-height: 100vh;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+/* Header */
+header {
+    text-align: center;
+    padding: 3rem 0;
+    border-bottom: 1px solid var(--secondary);
+}
+
+header h1 {
+    font-size: 2.5rem;
+    font-weight: 300;
+    color: var(--accent);
+    margin-bottom: 0.5rem;
+}
+
+.subtitle {
+    color: #999;
+    font-size: 1rem;
+    letter-spacing: 0.2em;
+}
+
+nav {
+    margin-top: 2rem;
+}
+
+nav a {
+    color: var(--text);
+    text-decoration: none;
+    margin: 0 1rem;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    transition: all 0.3s ease;
+}
+
+nav a:hover {
+    background: var(--primary);
+    color: white;
+}
+
+/* Main Content */
+main {
+    padding: 3rem 0;
+}
+
+.hero {
+    text-align: center;
+    padding: 4rem 0;
+    background: linear-gradient(180deg, transparent 0%, var(--shadow) 100%);
+    border-radius: 20px;
+    margin-bottom: 3rem;
+}
+
+.quote {
+    font-size: 1.8rem;
+    font-style: italic;
+    color: var(--accent);
+    line-height: 1.6;
+}
+
+.quote .source {
+    display: block;
+    margin-top: 1rem;
+    font-size: 1rem;
+    color: #999;
+    font-style: normal;
+}
+
+/* Sections */
+section {
+    margin-bottom: 3rem;
+}
+
+h2 {
+    font-size: 1.5rem;
+    font-weight: 400;
+    color: var(--accent);
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid var(--secondary);
+}
+
+.intro p {
+    margin-bottom: 1rem;
+    text-align: justify;
+}
+
+/* Posts */
+.post-card {
+    background: white;
+    padding: 2rem;
+    border-radius: 15px;
+    box-shadow: 0 4px 20px var(--shadow);
+    margin-bottom: 1.5rem;
+    transition: transform 0.3s ease;
+}
+
+.post-card:hover {
+    transform: translateY(-5px);
+}
+
+.post-card h3 {
+    font-weight: 400;
+    margin-bottom: 0.5rem;
+}
+
+.post-card h3 a {
+    color: var(--text);
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.post-card h3 a:hover {
+    color: var(--accent);
+}
+
+.post-card time {
+    display: block;
+    color: #aaa;
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 2rem 0;
+    border-top: 1px solid var(--secondary);
+    color: #999;
+    font-size: 0.9rem;
+}
+
+/* Article Page */
+article {
+    background: white;
+    padding: 3rem;
+    border-radius: 20px;
+    box-shadow: 0 4px 30px var(--shadow);
+}
+
+article h1 {
+    font-size: 2rem;
+    font-weight: 400;
+    color: var(--accent);
+    margin-bottom: 1rem;
+}
+
+article time {
+    display: block;
+    color: #aaa;
+    margin-bottom: 2rem;
+    font-size: 0.9rem;
+}
+
+article p {
+    margin-bottom: 1.5rem;
+    text-align: justify;
+}
+
+.back-link {
+    display: inline-block;
+    margin-top: 2rem;
+    color: var(--accent);
+    text-decoration: none;
+}
+
+.back-link:hover {
+    text-decoration: underline;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+    .container {
+        padding: 1rem;
+    }
+    
+    header h1 {
+        font-size: 2rem;
+    }
+    
+    .quote {
+        font-size: 1.4rem;
+    }
+    
+    article {
+        padding: 2rem 1.5rem;
+    }
+}
